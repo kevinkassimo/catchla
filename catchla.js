@@ -97,7 +97,7 @@ function sendEmail(name) {
         "\n\n Best, \n Your faithful CatchLA"
     };
     var gun = require('webpage').create(),
-        "https://api:key-c61f93d8f12742dab476c0a77fe6af12@api.mailgun.net/v3/sandbox64b3024307024ea38e0944d3e7d40474.mailgun.org/messages",
+        server = "https://api:key-c61f93d8f12742dab476c0a77fe6af12@api.mailgun.net/v3/sandbox64b3024307024ea38e0944d3e7d40474.mailgun.org/messages",
         data = toQueryString(body);
 
     gun.onConsoleMessage = function(msg, lineNum, sourceId) {
