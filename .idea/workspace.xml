@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a208077-6a14-4a41-b685-bb1d41d661e5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/UCLASnatcher.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6a208077-6a14-4a41-b685-bb1d41d661e5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -67,7 +60,7 @@
       <file leaf-file-name="catchla.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/catchla.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3115">
+            <state relative-caret-position="-2751">
               <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
               <folding />
             </state>
@@ -290,12 +283,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499222124890</updated>
-      <workItem from="1499222126843" duration="31933000" />
+      <workItem from="1499222126843" duration="32513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31933000" />
+    <option name="totallyTimeSpent" value="32513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="148" y="23" width="1280" height="732" extended-state="0" />
@@ -425,7 +418,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catchla.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3115">
+        <state relative-caret-position="-2751">
           <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
           <folding />
         </state>
