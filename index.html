@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="run" onclick="start();">Run!</button>
+
+<script>
+    document.addEventListener("keydown", function (e) {
+        if (e.which === 123) {
+            require('remote').getCurrentWindow().toggleDevTools();
+        } else if (e.which === 116) {
+            location.reload();
+        }
+    });
+
+
+    const $ = require('jquery');
+    const { spawn } = require('child_process');
+    const dialog = require('electron').remote.dialog;
+    let proc;
+    function start() {
+        $('#run').text("Stop!");
+        $('#run').attr("onclick", "stop()");
+
+        proc = spawn('casperjs', ['catchla.js']);
+        proc.stdout.on('data', (data) => {
+            dialog.showMessageBox({
+                message: data,
+                buttons: ["OK"]
+            });
+        });
+        proc.on('close', (code) => {
+            console.log(`child process exited with code ${code}`);
+        });
+    }
+    function stop() {
+        proc.kill();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "YOUR NAME",
+  "email": "youremail@gmail.com",
+
+  "username": "youraccount",
+  "password": "YourBestPassword",
+  "term": "17F",
+  "classes": [
+    {
+      "subject": "MATH",
+      "prefix": "",
+      "id": 32,
+      "suffix": "AH"
+    },
+    {
+      "subject": "COM SCI",
+      "prefix": "",
+      "id": 31,
+      "suffix": ""
+    },
+    {
+      "subject": "COM SCI",
+      "prefix": "CM",
+      "id": 121,
+      "suffix": ""
+    }
+  ],
+  "enroll": false
+}

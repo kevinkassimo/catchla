@@ -1,0 +1,11 @@
+{
+    "name": "CatchLA",
+    "version": "0.1.0",
+    "main": "main.js",
+    "devDependencies": {
+        "electron-prebuilt": "^1.2.0"
+    },
+    "dependencies": {
+        "jquery": "^3.2.1"
+    }
+}
