@@ -58,7 +58,7 @@ function classObjectToString(someClass) {
 phantom.cookiesEnabled = true;
 
 var LOG = {
-    verbose: false,
+    verbose: true,
     action: function(msg) {
         if (this.verbose) console.log("ACTION: " + msg);
     },
@@ -104,7 +104,8 @@ function sendEmail(name) {
         console.log('CONSOLE: ' + msg + ' (from line #' + lineNum + ' in "' + sourceId + '")');
     };
 
-    console.log("data : " + data);
+    // Remove logging to ensure a clear interface
+    //console.log("data : " + data);
 
     gun.open(server, 'POST', data, function(status) {
         if (status === 'success') {
@@ -124,6 +125,17 @@ function sendEmail(name) {
         }).waitFor(function check(){
             return oldUrl === this.getCurrentUrl();
         }, then, onTimeout, timeout);
+        return this;
+    };
+
+    var MAX_LOOP = 1000; // this is set to a small number as we will implement respawning feature
+    // A modification of the casper.repeat to loop forever
+    casper.loopForever = function loopForever(then) {
+        "use strict";
+        var i = 0;
+        while (i++ < MAX_LOOP) {
+            this.then(then);
+        }
         return this;
     };
 })();
@@ -146,7 +158,7 @@ function sendEmail(name) {
     casper.start(getEnrollSite(config.classes[0]));
 
     // Virtually infinite loop, I guess...
-    casper.repeat(100000, function body() {
+    casper.loopForever(function body() {
         casper.then(function wrapper() {
             if (classMap[classIndex] === false) {
 
