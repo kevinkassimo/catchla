@@ -10,9 +10,16 @@ if [ -z $(echo $UNAME_INFO | grep "Ubuntu") ]; then
     exit 0
 fi
 
+# Installing dialog
 if ! type "dialog" > /dev/null; then
     echo ">>> Dependency: Installing Dialog"
     apt install dialog
+fi
+
+# Installing Upstart
+if ! type "start" > /dev/null; then
+    echo ">>> Dependency: Installing Upstart"
+    apt install upstart
 fi
 
 # Check if npm is installed or not
@@ -40,13 +47,13 @@ if ! type "catchla" > /dev/null; then
 fi
 
 # Configuring upstart conf
-if [ -f "/etc/init/catchla.conf" ]; then
+if ! [ -f "/etc/init/catchla.conf" ]; then
     echo ">>> Configuring /etc/init config"
     mv "/opt/catchla/catchla.conf" "/etc/init/"
 fi
 
 # Ask whether to start the process now
-dialog --title "Starting Daemon" --yesno "Do you want to start the CatchLA daemon now? (notice you MUST first configure the config.json)"
+dialog --title "Starting Daemon" --yesno "Do you want to start the CatchLA daemon now? (notice you MUST first configure the config.json)" 7 60
 case $? in
     0) 
         start catchla
