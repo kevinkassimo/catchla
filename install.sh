@@ -2,10 +2,6 @@
 
 echo "CatchLA UCLA Course Scanner"
 
-# Rename this directory to make everything simple
-echo ">>> Renaming this directory to 'catchla'"
-mv "$PWD" "${PWD%/*}/catchla"
-
 UNAME_INFO=`uname -a`
 
 if [ -z $(echo $UNAME_INFO | grep "Ubuntu") ]; then
@@ -33,8 +29,11 @@ fi
 
 # Create symbolic link for the running script
 if ! type "catchla" > /dev/null; then
-    echo '>>> Copying scripts to /opt'
-    cp -r . '/opt'
+    echo '>>> Copying scripts to /opt/catchla'
+    if ! [ -d "/opt/catchla"]; then
+        mkdir '/opt/catchla'
+        cp -r * '/opt/catchla'
+    fi
     echo '>>> Creating command "catchla"'
     ln -s '/opt/run.sh' '/usr/local/bin/catchla'
     echo 'In case, please manually add /usr/local/bin/ to your $PATH'
@@ -47,8 +46,7 @@ if [ -f "/etc/init/catchla.conf" ]; then
 fi
 
 # Ask whether to start the process now
-dialog --title "Starting Daemon"
---yesno "Do you want to start the CatchLA daemon now? (notice you MUST first configure the config.json)"
+dialog --title "Starting Daemon" --yesno "Do you want to start the CatchLA daemon now? (notice you MUST first configure the config.json)"
 case $? in
     0) 
         start catchla
