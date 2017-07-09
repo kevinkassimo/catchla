@@ -181,7 +181,7 @@ function sendEmail(name) {
                         isLoggedin = false;
                     } else {
                         LOG.error("Unknown problem that caused timeout");
-                        phantom.exit();
+                        phantom.exit(1);
                     }
                 });
 
@@ -211,7 +211,7 @@ function sendEmail(name) {
                                 LOG.error("Invalid login info provided");
                             } else {
                                 LOG.error('Waiting too long, timed out');
-                                phantom.exit();
+                                phantom.exit(1);
                             }
                         }, 20000);
                     }
@@ -323,7 +323,7 @@ function sendEmail(name) {
 
             if (shouldStop) {
                 LOG.action("Complete!");
-                phantom.exit();
+                phantom.exit(0);
             }
         });
     });

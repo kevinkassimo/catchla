@@ -11,4 +11,10 @@ while getopts "e" opt; do
     esac
 done
 
-casperjs src/catchla.js
+RESULT=$(casperjs src/catchla.js)
+case $RESULT in
+    0)
+        stop catchla
+        echo ">>> CatchLA complete"
+        ;;
+esac
