@@ -1,0 +1,10 @@
+[Unit]
+Description=CatchLA
+
+[Service]
+WorkingDirectory=/opt/catchla
+ExecStart=/opt/catchla/run.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

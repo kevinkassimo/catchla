@@ -328,5 +328,10 @@ function sendEmail(name) {
         });
     });
 
+    casper.on('run.complete', function() {
+        this.echo('casper terminated by loop finish');
+        phantom.exit(1);
+    });
+
     casper.run();
 })();
