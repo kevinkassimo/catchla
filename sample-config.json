@@ -25,5 +25,9 @@
       "suffix": ""
     }
   ],
-  "enroll": false
+  "enroll": false,
+  "mailgun": {
+    "domain": "sandbox64b3024307024ea38e0944d3e7d40474.mailgun.org",
+    "key": "key-c61f93d8f12742dab476c0a77fe6af12"
+  }
 }

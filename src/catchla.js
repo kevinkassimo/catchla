@@ -88,7 +88,7 @@ function sendEmail(name) {
         return str.slice(0, str.length - 1);
     }
     var body = {
-        "from": "Mailgun Sandbox <postmaster@sandbox64b3024307024ea38e0944d3e7d40474.mailgun.org>",
+        "from": "CatchLA on Mailgun <postmaster@" + config.mailgun.domain + ">",
         "to": config.name + " <" + config.email + ">",
         "subject": "Hello ",
         "text": "Hi, \n This is your course scanner service to remind you that a new spot has shown up " +
@@ -97,7 +97,7 @@ function sendEmail(name) {
         "\n\n Best, \n Your faithful CatchLA"
     };
     var gun = require('webpage').create(),
-        server = "https://api:key-c61f93d8f12742dab476c0a77fe6af12@api.mailgun.net/v3/sandbox64b3024307024ea38e0944d3e7d40474.mailgun.org/messages",
+        server = "https://api:" + config.mailgun.key + "@api.mailgun.net/v3/" + config.mailgun.domain + "/messages",
         data = toQueryString(body);
 
     gun.onConsoleMessage = function(msg, lineNum, sourceId) {
@@ -293,7 +293,31 @@ function sendEmail(name) {
                                     }
 
                                     if (config.enroll) {
-                                        // TODO: add automatic enrollment step over here!
+                                        LOG.must("Enrolling " + classObjectToString(config.classes[classIndex]) + "...");
+                                        // TODO: test this enroll implementation
+                                        casper.waitForSelector("#btn_Enroll", function performEnroll() {
+                                            var isEnrolled = this.evaluate(function enrolling() {
+                                                var enrollBtn = $("#btn_Enroll");
+                                                var enrollPanel = $("div.row-fluid.enroll")[0];
+                                                if ((!enrollBtn) || (!enrollPanel)) {
+                                                    return false;
+                                                }
+                                                var checkBoxes = enrollPanel.querySelectorAll("input[type='checkbox']");
+                                                for (var i = 0; i < checkBoxes.length; i++) {
+                                                    checkBoxes[i].click();
+                                                }
+                                                enrollBtn.click();
+                                                return true;
+                                            });
+
+                                            if (!isEnrolled) {
+                                                LOG.must("Cannot automatically enroll " + classObjectToString(config.classes[classIndex]) + "...");
+                                            } else {
+                                                LOG.must("Class enroll attempted. Please login and check");
+                                            }
+                                        });
+                                        // TODO: no matter what, still send an email on enrolled
+                                        sendEmail(classObjectToString(config.classes[classIndex]));
                                     } else {
                                         sendEmail(classObjectToString(config.classes[classIndex]));
                                     }
