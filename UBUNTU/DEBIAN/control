@@ -1,0 +1,6 @@
+Package: catchla
+Version: 0.1
+Maintainer: Kassimo (Kun), Qianmeng, Haozhuo
+Architecture: all
+Description: UCLA course scanner
+Depends: npm, nodejs-legacy

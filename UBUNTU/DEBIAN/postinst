@@ -1,0 +1,9 @@
+#/bin/bash
+
+set -e
+
+npm -g install phantomjs
+npm -g install casperjs
+
+chmod +x /usr/local/bin/catchla
+chmod +x /opt/catchla/run.sh
