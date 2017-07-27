@@ -1,11 +1,15 @@
 #!/bin/bash
 
 OPTIND=1
-while getopts "els" opt; do
+while getopts "elsc" opt; do
     case "$opt" in
     "e")
         echo ">>> Stopping catchla service"
         systemctl stop catchla.service
+        exit 0
+        ;;
+    "c")
+        vim "/opt/catchla/config.json"
         exit 0
         ;;
     "l")

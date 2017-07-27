@@ -7,7 +7,7 @@ A `catchla.deb` package has been created under Ubuntu environment. You could dir
 ```
 dpkg -i catchla.deb
 ```
-to install the program with all the dependencies. The only difference: after installation, you have to manually run `catchla` to start the daemon. `config.json` is still under the `/opt/catchla` directory.  
+to install the program with all the dependencies. The only difference: after installation, you have to manually run `catchla` to start the daemon. `config.json` is still under the `/opt/catchla` directory. To remove the package, just do `dpkg -r catchla`.   
 
 ## How to run
 Basic features such as class scan and email notification should be available now. Auto enrollment has been implemented but not yet tested. Nevertheless, to turn on auto enrollment, set `enroll` in your config to `true`
@@ -35,6 +35,7 @@ catchla # start catchla daemon if it stopped running / not started during instal
 catchla -l # show system logs (with course validity info) with `less`
 catchla -e # stop catchla daemon
 catchla -s # show the catchla.service status
+catchla -c # edit the config.json using Vim
 
 # under /opt/catchla/ OR at the cloned directory for installation
 make status # view current catchla daemon status
