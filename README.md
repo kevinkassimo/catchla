@@ -2,6 +2,13 @@
 This is a reimplementation of Snatcher in CasperJS, added with some useful utils.  
 Currently, the util files, however, __ONLY__ support __UBUNTU__.
 
+## UPDATE: Ubuntu Package Created  
+A `catchla.deb` package has been created under Ubuntu environment. You could directly use
+```
+dpkg -i catchla.deb
+```
+to install the program with all the dependencies. The only difference: after installation, you have to manually run `catchla` to start the daemon. `config.json` is still under the `/opt/catchla` directory.  
+
 ## How to run
 Basic features such as class scan and email notification should be available now. Auto enrollment has been implemented but not yet tested. Nevertheless, to turn on auto enrollment, set `enroll` in your config to `true`
 
