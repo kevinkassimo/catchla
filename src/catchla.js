@@ -172,7 +172,7 @@ function sendEmail(name) {
                     if (!this.evaluate(function hasJQuery() {
                             return Boolean($);
                         })) {
-                        this.page.injectJs('includes/jquery-3.2.1.min.js');
+                        this.page.injectJs('../includes/jquery-3.2.1.min.js');
                     }
 
                     if (this.evaluate(function isAtLoginPage() {
