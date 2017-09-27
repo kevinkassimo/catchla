@@ -14,7 +14,7 @@ done
 systemctl start catchla.service
 
 set -o pipefail
-casperjs src/catchla.js > /opt/catchla/catchla.log
+casperjs /opt/catchla/src/catchla.js > /opt/catchla/catchla.log
 
 RESULT=$?
 

@@ -12,7 +12,7 @@ var fs = require('fs');
 
 var config;
 (function readConfig() {
-    config = JSON.parse(fs.read('config.json', 'utf8'));
+    config = JSON.parse(fs.read('/opt/catchla/config.json', 'utf8'));
 })();
 
 
