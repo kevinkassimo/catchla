@@ -2,6 +2,11 @@
 This is a reimplementation of Snatcher in CasperJS, added with some useful utils.  
 Currently, the util files, however, __ONLY__ support __UBUNTU__.
 
+## UPDATE: Common Installation Problem  
+1. You may found that `npm` is not installed. Install it.  
+2. You may found that `npm` refuses to run `due to nodejs bug`. This is very sad, but an official fix is [here](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)  
+3. You may found halfway in installation, `npm` reports error and failed to install phantomjs AND casperjs. You can first try manually do `npm install -g phantomjs` AND `npm install -g casperjs`. IF then, `phantomjs` starts up and immediately exists with some error message, try removing the npm version using `npm uninstall phantomjs -g` and install instead using `apt-get install phantomjs` source. IF it fails again, try this [solution](https://www.vultr.com/docs/how-to-install-phantomjs-on-ubuntu-16-04) (This is the solution that worked for me. GOD `phantomjs` is such a mess!).  
+
 ## UPDATE: Ubuntu Package Created  
 A `catchla.deb` package has been created under Ubuntu environment. You could directly use
 ```
