@@ -14,7 +14,7 @@ while getopts "elsc" opt; do
         ;;
     "l")
         touch "/opt/catchla/catchla.log"
-        less "/opt/catchla/catchla.log"
+        tail -f "/opt/catchla/catchla.log"
         exit 0
         ;;
     "s")
