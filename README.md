@@ -2,6 +2,9 @@
 This is a reimplementation of Snatcher in CasperJS, added with some useful utils.  
 Currently, the util files, however, __ONLY__ support __UBUNTU__.
 
+## WARNING  
+This course scanner has been proved to be detected by UCLA Registrar. USE AT YOUR OWN RISK!  
+
 ## UPDATE: Common Installation Problem  
 1. You may found that `npm` is not installed. Install it.  
 2. You may found that `npm` refuses to run `due to nodejs bug`. This is very sad, but an official fix is [here](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)  
